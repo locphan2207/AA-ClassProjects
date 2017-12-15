@@ -1,0 +1,35 @@
+body {
+  font-family: Arial,sans-serif;
+  line-height: 1.5;
+  background-color: lightblue;
+}
+
+H1 {
+  font-size: 38px
+}
+
+H2 {
+  font-size: 32px
+}
+
+.ingredients-list {
+  list-style: square inside
+}
+
+.ordered-list {
+  border: 1px solid red;
+}
+
+header img {
+  width: 100px;
+}
+
+ul li a {
+  text-decoration: none;
+  color: inherit
+}
+
+.user_review h4 {
+  font-size: 50px;
+  font-weight: bold;
+}
