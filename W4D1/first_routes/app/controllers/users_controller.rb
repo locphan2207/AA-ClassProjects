@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
   
   def create
-    new_user = User.new(params[:user].permit(:name, :email))
+    new_user = User.new(user_param)
     if new_user.save
       render json: new_user
     else
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   def update
     user = User.find_by(id: params[:id])
     
-    if user.update(params[:user].permit(:name, :email))
+    if user.update(user_param)
       render json: user
       # redirect_to '', status: 200
     else
@@ -42,5 +42,10 @@ class UsersController < ApplicationController
     else
       render plain: "Cannot delete nonexisting user!"
     end
+  end
+  
+  private
+  def user_param
+    params.require(:user).permit(:username)
   end
 end
