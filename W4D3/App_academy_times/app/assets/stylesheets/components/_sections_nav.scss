@@ -1,0 +1,32 @@
+.section-nav {
+  border-bottom: 1px solid $light-gray;
+}
+.section-nav ul {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: auto;
+}
+.section-nav ul li {
+  padding: 8px 0;
+  // padding-left: 
+}
+
+.section-nav ul li a{
+  font-size: 12px;
+}
+
+.section-nav ul li a:hover{
+  background: $light-gray;
+}
+
+#all {
+  font-size: 0.625rem;
+  font-weight: 500;
+  font-family: arial,helvetica,sans-serif;
+}
+
+#all:hover {
+  background: inherit;
+  text-decoration: underline;
+}

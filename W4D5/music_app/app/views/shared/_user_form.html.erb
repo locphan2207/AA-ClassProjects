@@ -1,0 +1,19 @@
+<% if action == :signup %>
+  <% action_url = users_url%>
+  <% button_text = 'Sign up'%>
+<% else %>
+  <% action_url = session_url %>
+  <% button_text = 'Sign in' %>
+<% end %>
+
+<%= render 'shared/error_form' %>
+
+<form action="<%= action_url %>" method="post">
+  <%= auth_token %>
+  <label for="email">Email</label>
+  <input id="email" type="text" name="user[email]">
+  <label for="password">Password</label>
+  <input id="password" type="password" name="user[password]">
+  <input type="submit" value="<%= button_text %>">
+</form>
+

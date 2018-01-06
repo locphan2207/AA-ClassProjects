@@ -1,0 +1,32 @@
+<h1>Edit Track:</h1>
+
+<%= render 'shared/error_form' %>
+
+<form id="track-form" action="<%= track_url(@track) %>" method="post">
+  <input type="hidden" name="_method" value="PATCH">
+  <%= auth_token %>
+  <label for="title">Title: </label>
+  <input id="title" type="text" name="track[title]" value=" <%=@track.title %>"><br>
+  
+  <label for="album">Album Name: </label>
+  <select id="album" name="track[album_id]">
+    <% Album.all.each do |album| %>
+      <option value="<%= album.id %>" <%= 'selected="selected"' if @track.album_id == album.id %>"> <%= album.title %></option>
+    <% end %>
+  </select>
+  <br>
+  
+  <label for="ord">Ord: </label>
+  <input id="ord" type="text" name="track[ord]" value="<%= @track.ord %>"><br>
+  
+  <div class="">
+    <input type="radio" name="track[regular]" value="true" <%= 'checked' if @track.regular %>>Regular
+    <input type="radio" name="track[regular]" value="false" <%= 'checked' unless @track.regular %>>Bonus<br>
+  </div>
+  
+  <label for="lyric">Lyric: </label><br>
+  <textarea id="lyric" name="track[lyrics]" form="track-form"> <%= @track.lyrics %></textarea>
+  <br>
+  
+  <input type="submit" name="" value="Update Track">
+</form>

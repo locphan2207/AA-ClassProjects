@@ -1,0 +1,19 @@
+<h1>Band Show Page</h1>
+<h2><%= @band.name %></h2>
+<div class="showpage-buttons">
+  <%= button_to "Edit", edit_band_url(@band), method: :get %>
+  <%= button_to "Delete", band_url(@band), method: :delete %>
+</div>
+<%= button_to "Add Album", new_band_album_url(@band.id), method: :get %>
+
+<h3>Album List:</h3>
+<% if @band.albums %>
+  <ul>
+    <% @band.albums.each do |album| %>
+      <li> <%= album.title %></li>
+      <%= button_to "Show", album_url(album), method: :get %>
+    <% end %>
+  </ul>
+<% else %>
+  <p>This Band has no album</p>
+<% end %>

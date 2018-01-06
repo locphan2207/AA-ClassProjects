@@ -1,0 +1,24 @@
+<h1>Edit Album:</h1>
+
+<%= render 'shared/error_form' %>
+
+<form action="<%= album_url(@album) %>" method="post">
+  <input type="hidden" name="_method" value="PATCH">
+  <%= auth_token %>
+  <label for="title">Album Name: </label>
+  <input id="title" type="text" name="album[title]" value="<%= @album.title %>"><br>
+  <label for="band">Band Name: </label>
+  <select id="band" name="album[band_id]">
+    <% Band.all.each do |band| %>
+      <option value="<%= band.id %>" <%= 'selected="selected"' if @album.band_id == band.id %>"> <%= band.name %></option>
+    <% end %>
+  </select>
+  <br>
+  <div class="">
+    <input type="radio" name="album[live]" value="true" <%= 'checked' if @album.live %>>Live
+    <input type="radio" name="album[live]" value="false" <%= 'checked' unless @album.live %>>Studio<br>
+  </div>
+  <label for="year">Year: </label>
+  <input id="year" type="text" name="album[yr]" value="<%= @album.yr %>"><br>
+  <input type="submit" name="" value="Create Album">
+</form>

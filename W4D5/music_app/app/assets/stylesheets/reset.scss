@@ -1,0 +1,14 @@
+#main-header {
+  font-family: sans-serif;
+  color: red;
+}
+
+.user-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.user-buttons * {
+  padding: 0 10px;
+  color: blue;
+}

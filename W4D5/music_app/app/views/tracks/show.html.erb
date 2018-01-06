@@ -1,0 +1,37 @@
+<h1>Track Show Page</h1>
+
+<h3>Title: <%= @track.title %></h2>
+<h3>Album: <%= link_to "#{@track.album.title}", album_url(@track.album) %></h3>
+<h3><%= @track.regular ? 'Regular' : 'Bonus' %></h3>
+<h3>Ord: <%= @track.ord %></h3>
+<p>Lyric: <%= @track.lyrics %></p>
+
+<div class="showpage-buttons">
+  <%= button_to "Edit Track", edit_track_url(@track), method: :get %>
+  <%= button_to "Delete Track", track_url(@track), method: :delete %>
+</div>
+
+
+<ul>
+  <% if !@track.notes.empty? %>
+    <h3>Track's Notes:</h3>
+    <% @track.notes.each do |note| %>
+      <li><%= note.user.email %>: "<%= note.body %>" on <%= note.updated_at %></li>
+      <% if current_user.id == note.user_id%>
+        <%= button_to "Delete", note_url(note), method: :delete%>
+      <% end %>
+    <% end %>
+  <% end %>
+</ul>
+<br>
+
+<%= render 'shared/error_form' %>
+
+<h3>New Note:</h3>
+<form id="note-form" class="" action="<%= notes_url %>" method="post">
+  <%= auth_token %>
+  <label for="body"></label>
+  <textarea id="body" name="note[body]" form="note-form"></textarea><br>
+  <input type="hidden" name="note[track_id]" value="<%= @track.id %>">
+  <input type="submit" name="" value="Create Note">
+</form>

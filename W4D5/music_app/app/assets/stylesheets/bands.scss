@@ -1,0 +1,23 @@
+// Place all the styles related to the Bands controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+h1 {
+  margin: auto;
+  color: blue;
+}
+
+h2 {
+  margin-left: 50px;
+  color: gray;
+}
+
+.showpage-buttons {
+  display: flex;
+  justify-content: flex-start;
+  color: black;
+}
+
+// .showpage-buttons form input{
+//   font-size: 100px;
+//   color: green;
+// }

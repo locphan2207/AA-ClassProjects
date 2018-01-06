@@ -1,0 +1,19 @@
+<% if action == :create %>
+  <% action_url = bands_url %>
+  <% button_text = 'Create' %>
+  <% method = 'POST' %>
+<% else %>
+  <% action_url = band_url %>
+  <% button_text = 'Update' %>
+  <% method = 'PATCH' %>
+<% end %>
+
+<%= render 'shared/error_form' %>
+
+<form class="" action="<%= action_url %>" method="post">
+  <input type="hidden" name="_method" value="<%= method %>">
+  <%= auth_token %>
+  <label for="name">Band Name</label>
+  <input id="name" type="text" name="band[name]" value=" <%= band.name %>">
+  <input type="submit" name="" value="<%= button_text %>">
+</form>
