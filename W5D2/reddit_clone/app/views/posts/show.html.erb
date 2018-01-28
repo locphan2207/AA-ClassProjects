@@ -1,0 +1,8 @@
+<h1><%= @post.title  %> by <%= @post.author.username %></h1>
+
+<p>Subs</p>
+
+
+<% if current_user.id == @post.user_id %>
+  <%= button_to "Edit Post", edit_post_url, method: :get %>
+<% end %>

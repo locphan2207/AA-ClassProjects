@@ -1,0 +1,10 @@
+<h1><%= @sub.title %> Sub</h1>
+
+<%= button_to "Create New Post", new_post_url, method: :get %>
+
+<%= render 'shared/error' %>
+
+<h4>Description: <%= @sub.description %> </h4>
+<% if current_user.id == @sub.user_id %>
+  <%= button_to "Edit Sub", edit_sub_url(@sub), method: :get %>
+<% end %>

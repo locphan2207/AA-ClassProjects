@@ -1,0 +1,17 @@
+{
+  "name": "asteroids_game",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bundle.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "webpack": "webpack --watch lib/game_view.js bundle.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "webpack": "^3.10.0"
+  }
+}

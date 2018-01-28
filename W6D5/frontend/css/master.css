@@ -1,0 +1,19 @@
+.widget-clock {
+  width: 80%;
+  margin: 0 auto;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.widget-clock-label {
+  font-size: 50px;
+  margin-bottom: 0;
+}
+
+.timedate-container {
+  padding: 20px;
+  background-color: aquamarine;
+}
+
+.timedate-container h2>span {
+  float: right;
+}

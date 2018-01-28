@@ -1,0 +1,19 @@
+<table>
+  <tr>
+    <th>Birthdate:</th>
+    <th>Color:</th>
+    <th>Name:</th>
+    <th>Sex:</th>
+    <th>Description:</th>
+  </tr>
+  <tr>
+    <td><%= cat.birth_date %></td>
+    <td><%= cat.color %></td>
+    <td><%= cat.name %></td>
+    <td><%= cat.sex %></td>
+    <td><%= cat.description %></td>
+  </tr>
+</table>
+<% if action == :index %>
+  <%= link_to 'Show page', cat_url(cat) %>
+<% end %>
