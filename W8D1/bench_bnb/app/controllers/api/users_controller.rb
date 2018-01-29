@@ -1,14 +1,12 @@
 class Api::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
-
+    @errors = []
     if @user.save
-      sign_in(@user)
-      # redirect_to links_url #maybe fix this
+      session[:session_token] = @user.reset_session_token!
       render :show
     else
-      flash.now[:errors] = @user.errors.full_messages
-      # render plain: 'username already exists'
+      @errors += @user.errors.full_messages
       render :show, status: 422
     end
   end
