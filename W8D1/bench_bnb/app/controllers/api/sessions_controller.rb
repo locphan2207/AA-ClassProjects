@@ -16,9 +16,18 @@ class Api::SessionsController < ApplicationController
   end
 
   def destroy
-    render plain: "No current user", status: 404 if !current_user
-    session[:session_token] = nil
-    render json: {} if current_user
+    @user = current_user;
+    @errors = [];
+    if @user
+      @user.reset_session_token!
+      @user.save
+      session[:session_token] = nil
+      @user = nil;
+      render :show
+    else
+      @errors = ['No current user']
+      render :show, status: 404
+    end
   end
 
 end
