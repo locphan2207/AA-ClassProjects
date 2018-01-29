@@ -11,10 +11,10 @@ const sessionErrorReducer = (state = [], action) => {
   switch(action.type) {
     case (RECEIVE_CURRENT_USER):
       newState = action.errors;
-      return _.merge({}, state, newState);
+      return _.merge([], state, newState);
     case (RECEIVE_ERRORS):
       newState = action.errors;
-      return _.merge({}, state, newState);
+      return _.merge([], state, newState);
     default:
       return state;
   }

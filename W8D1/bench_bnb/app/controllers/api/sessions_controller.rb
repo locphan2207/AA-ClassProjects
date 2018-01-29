@@ -10,7 +10,7 @@ class Api::SessionsController < ApplicationController
       session[:session_token] = @user.reset_session_token!
       render :show
     else
-      @errors = ['Invalid credentials']
+      @errors += ['Invalid credentials']
       render :show, status: 401
     end
   end

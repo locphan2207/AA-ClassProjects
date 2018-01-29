@@ -3,7 +3,7 @@ import GreetingContainer from './greeting_container';
 import {Link} from 'react-router-dom';
 
 const Greeting = (props) => {
-  console.log(props);
+  // console.log(props);
   if (props.currentUser === null) {
     return (
       <div>
