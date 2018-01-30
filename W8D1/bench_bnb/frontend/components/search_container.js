@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import BenchIndex from './bench_index';
+import Search from './search';
 import {fetchBenches} from '../actions/bench_actions';
 
 const mapSTP = (state) => {
@@ -14,4 +14,4 @@ const mapDTP = (dispatch) => {
   };
 };
 
-export default connect(mapSTP, mapDTP)(BenchIndex);
+export default connect(mapSTP, mapDTP)(Search);
